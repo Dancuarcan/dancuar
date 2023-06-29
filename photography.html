@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/pkq7yxb.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar_wrapper">
+      <div class="navbar">
+        <div class="logo">
+          <a href="./index.html">DANCUAR</a>
+        </div>
+        <div class="menu">
+          <a href="index.html">WORK<div class="line"></div></a>
+          <a href="indx.html">INDEX<div class="line"></div></a>
+          <a href="About.html">ABOUT<div class="line"></div></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="photography_background" id="photography_background">
+      <div class="photography_gallery" id="photography_gallery">
+            <!-- <p class="arrow" id= "arrow_left" onclick="prev()"><</p> -->
+        <div class="click_next" onclick="next()"></div>
+        <div class="item" id="photography_frame">
+          <div class="photography_img_container"><img src="./images/index_images/photography_1.1.jpg" alt="" id="img_displayed"></div>
+          <div class="img_description">
+            
+            <!-- <p id="photography_info">01_PALACIO_NACIONAL </p> -->
+            <p id="photography_imgCount">1/18</p>
+          </div>       
+        </div>
+        <!-- <p class="arrow" id= "arrow_right" onclick="next()">></p> -->
+    </div>
+    </div>
+
+ 
+    <div class="footer">
+      <a href="mailto:jdcuartas2013@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
+      
+      <a href="https://www.instagram.com/dancuar/" target="_blank" rel="noreferrer noopener">INSTAGRAM</a>
+      <a href="https://dancuar.tumblr.com/" target="_blank" rel="noreferrer noopener">TUMBLR</a>
+      <a href="https://www.pinterest.es/Dancuarcan/" target="_blank" rel="noreferrer noopener">PINTEREST</a>
+    </div>
+
+    <div class="cursor"></div>
+    <script src="app.js"></script>
+
+
+  </body>
+</html>
