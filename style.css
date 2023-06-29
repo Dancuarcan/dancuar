@@ -839,6 +839,10 @@ canvas.active{
     display: none;
   }
 
+  .navbar {
+    padding: .3rem .5rem;
+  }
+
   .logo {
     font-size: calc(var(--logoFontsize) - 18px);
   }
