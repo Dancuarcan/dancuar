@@ -39,6 +39,9 @@ links.forEach(link =>{
     })    
 })
 
+
+
+
 //Index links array
 
 const index = [...document.querySelectorAll(".index a")];
@@ -75,98 +78,6 @@ for(let i= 0; i < index.length; i++){
 
 
 
-
-// let imageArray = [];
-
-
-// let options = {
-//     rootMargin: '0px',
-//     threshold: 1.0
-// }
-
-// let callback = (entries => {
-//     entries.forEach(entry => {
-//         if(entry.isIntersecting){
-//             console.log(entry.target.classList[0]);
-//             imageArray[+entry.target.classList[0]].reveal();
-
-//         }
-//     });
-// })
-
-// let observer = new IntersectionObserver(callback, options);
-
-// class PixelImage{
-//     constructor(id, image, width, height){
-//         this.id = id;
-//         this.image = image;
-//         this.styleWidth = width;
-//         this.styleHeight = height;
-//         this.width = width * window.devicePixelRatio;
-//         this.height = height * window.devicePixelRatio;
-//         this.percent = .001;
-//         this.applyCanvas();
-//         this.draw();
-//     }
-
-//     applyCanvas(){
-//         this.canvas = document.createElement('canvas');
-//         this.canvas.classList.add(this.id);
-//         this.ctx = this.canvas.getContext('2d');
-//         this.image.parentElement.appendChild(this.canvas);
-//         this.canvas.width = this.width;
-//         this.canvas.height = this.height;
-//         this.canvas.style.width = `${this.styleWidth}px`;
-//         this.canvas.style.height = `${this.styleHeight}px`;
-//         this.scaledWidth = this.width * this.percent;
-//         this.scaledHeight = this.height * this.percent;
-
-//         // turn off image aliasing
-//         this.ctx.msImageSmoothingEnabled = false;
-//         this.ctx.mozImageSmoothingEnabled = false;
-//         this.ctx.webkitImageSmoothingEnabled = false;
-//         this.ctx.imageSmoothingEnabled = false;
-
-//         observer.observe(this.canvas);
-//     }
-
-//     draw(){
-//         this.ctx.drawImage(this.image, 0, 0, this.scaledWidth, this.scaledHeight);
-//         this.ctx.drawImage(this.canvas, 0, 0, this.scaledWidth, this.scaledHeight, 0, 0, this.width, this.height);
-//     }
-
-//     reveal(){
-//         this.canvas.classList.add('active');
-//         this.percent = this.percent < .1 ? this.percent += .002 : this.percent += .2;
-//         if(this.percent > 1) {
-//             this.percent = 1;
-//         }
-        
-//         this.scaledWidth = this.width * this.percent;
-//         this.scaledHeight = this.height * this.percent;
-
-//         this.ctx.drawImage(this.image, 0, 0, this.scaledWidth, this.scaledHeight);
-//         this.ctx.drawImage(this.canvas, 0, 0, this.scaledWidth, this.scaledHeight, 0, 0, this.width, this.height);
-//         if(this.percent < 1) requestAnimationFrame(this.reveal.bind(this));
-//     }
-// }
-
-// function generatePixelImages(){
-//     let images = [...document.querySelectorAll('')];
-//     images.forEach((image, idx) => {
-//         let {width, height} = image.getBoundingClientRect();
-//         let pixelImage = new PixelImage(idx, image, width, height);
-//         imageArray.push(pixelImage);
-//     })
-// }
-
-// setTimeout(() => {
-//     generatePixelImages();
-// }, 100  )
-
-
-
-
  const gallery = document.querySelector('.gallery')
 
  window.onscroll = () =>{
@@ -178,39 +89,6 @@ for(let i= 0; i < index.length; i++){
     }
 
  }
-
-//     const allImages= [...document.querySelectorAll('.img_container')];
-//     console.log(allImages)
-
-// for(let i = 0; i < allImages.length; i++){
-//     allImages[i].addEventListener('mouseover', ()=>{
-//         cursor.classList.add('change')
-//         console.log('hello')
-//     })
-//     allImages[i].addEventListener('mouseleave', ()=>{
-//         cursor.classList.remove('change')
-//         console.log('hello')
-//     })
-// }
-
-
-// const arrow_left = document.getElementById('arrow_left')
-// const arrow_right = document.getElementById('arrow_right')
-
-// arrow_left.addEventListener('mouseover', ()=>{
-//     cursor.classList.add('change');
-// })
-// arrow_left.addEventListener('mouseleave', ()=>{
-//     cursor.classList.remove('change');
-// })
-
-// arrow_right.addEventListener('mouseover', ()=>{
-//     cursor.classList.add('change');
-// })
-// arrow_right.addEventListener('mouseleave', ()=>{
-//     cursor.classList.remove('change');
-// })
-
 
 
 
@@ -238,6 +116,23 @@ var photographyImages = [
     './images/index_images/photography_18.jpg',
     
 ]
+
+function photographyPreloader(){
+    for (i=0; i<photographyImages.length; i++){
+        let frameContainer = document.createElement('div');
+        frameContainer.classList.add('framePreload');
+        let image = document.createElement('img');
+
+        frameContainer.style.display = 'none';
+    
+        image.src = photographyImages[i];
+
+        document.body.appendChild(frameContainer);
+        frameContainer.appendChild(image);
+    }
+}
+
+
 var i = 0;
 
 function prev(){
@@ -257,20 +152,23 @@ function setImg(){
     imgCount.innerText = `${i+1}/${photographyImages.length}`;
 }
 
-const hello= document.querySelector('.photography_gallery .click_next');
+const nextButton= document.querySelector('.photography_gallery .click_next');
 let NEXT = document.createElement('p');
     cursor.appendChild(NEXT);
     NEXT.innerText = '👉';
 
-if(hello){
-    hello.addEventListener('mouseover', ()=>{
+if(nextButton){
+
+    photographyPreloader();
+
+    nextButton.addEventListener('mouseover', ()=>{
         cursor.classList.add('overImg');
         NEXT.style.display = 'block';
         // cursor.style.display = 'block';
         // document.body.style.cursor = 'none';
     })
     
-    hello.addEventListener('mouseleave', ()=>{
+    nextButton.addEventListener('mouseleave', ()=>{
         cursor.classList.remove('overImg');
         NEXT.style.display = 'none';
         // cursor.style.display = 'none';
@@ -365,5 +263,78 @@ document.addEventListener('keydown', function (event){
         panel.classList.remove('active'); 
     }
 })
+
+
+let device_menu_toggle_on = document.querySelector('.device_menu_toggle_on');
+let device_menu_toggle_off = document.querySelector('.device_menu_toggle_off');
+let device_menu = document.querySelector('.device_menu');
+let device_menu_index = Array.from(document.querySelectorAll('.device_menu_index a'));
+
+
+function menuToggle(){
+
+    if (window.innerWidth < 790){
+      
+        device_menu_toggle_on.style.display = 'none';
+        device_menu_toggle_off.style.display = 'flex';
+        device_menu.classList.add('displayed');
+
+        device_menu_index.forEach((link, idx) =>{
+            setTimeout(()=>{
+                link.classList.add("active");
+            }, idx * 70)
+        })
+    } 
+}
+
+
+function menuOff(){
+
+    if (window.innerWidth < 790){
+        
+        device_menu_toggle_on.style.display = 'flex';
+        device_menu_toggle_off.style.display = 'none';
+        device_menu.classList.remove('displayed');
+
+        device_menu_index.forEach((link) =>{
+            link.classList.remove("active");
+        })
+    } 
+}
+
+window.addEventListener("resize", ()=> {
+
+    if (window.innerWidth > 790){
+
+        device_menu_toggle_off.style.display = 'none';
+        device_menu_toggle_on.style.display = 'none'; 
+        device_menu.classList.remove('displayed');
+
+    } else if(window.innerWidth < 790) {
+
+        device_menu_toggle_off.style.display = 'none';
+        device_menu_toggle_on.style.display = 'flex'; 
+        device_menu.classList.remove('displayed');
+    }
+   });
+
+
+device_menu_toggle_on.addEventListener('mouseover', ()=>{
+    cursor.classList.add('change')
+});
+
+device_menu_toggle_on.addEventListener('mouseleave', ()=>{
+    cursor.classList.remove('change')
+});
+
+
+
+
+//animations
+
+gsap.from(".img_container, .img_description, #poster_img_container", {duration: .3, delay: .5, opacity: 0, y:-10,stagger: .06, ease: "power4.inOut"});    
+
+gsap.from(".index .container", {duration: .08, opacity: 0, delay:.5, y:-10, stagger: .06});    
+
 
 

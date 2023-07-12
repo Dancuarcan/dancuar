@@ -14,7 +14,8 @@
   </head>
 
   <body>
-    <div class="navbar_wrapper">
+
+      <div class="navbar_wrapper">
       <div class="navbar">
         <div class="logo">
           <a href="./index.html">DANCUAR</a>
@@ -23,6 +24,30 @@
           <a href="index.html">WORK<div class="line"></div></a>
           <a href="indx.html">INDEX<div class="line"></div></a>
           <a href="About.html">ABOUT<div class="line"></div></a>
+        </div>
+
+        <div class="device_menu_toggle_on" onclick="menuToggle()">
+          <span></span>
+          <span></span>
+        </div>
+        
+        <div class="device_menu_toggle_off" onclick="menuOff()">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="device_menu">
+        <div class="sub_menu">
+          <a href="index.html">WORK</a>
+          <a href="About.html">ABOUT</a>
+        </div>
+        <div class="device_menu_index">
+          <a href="./album cover.html">ALBUM COVER</a>
+          <a href="./poster.html">POSTER</a>
+          <a href="./photography.html">PHOTOGRAPHY</a>
+          <a href="./animation.html">ANIMATION</a>
+          <a href="./illustration.html">ILLUSTRATION</a>
         </div>
       </div>
     </div>
@@ -41,7 +66,7 @@
           </div>       
         </div>
         <!-- <p class="arrow" id= "arrow_right" onclick="next()">></p> -->
-    </div>
+      </div>
     </div>
 
  
@@ -54,8 +79,10 @@
     </div>
 
     <div class="cursor"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="app.js"></script>
 
+ 
 
   </body>
 </html>

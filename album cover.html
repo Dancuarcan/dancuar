@@ -24,6 +24,31 @@
           <a href="indx.html">INDEX<div class="line"></div></a>
           <a href="About.html">ABOUT<div class="line"></div></a>
         </div>
+
+        <div class="device_menu_toggle_on" onclick="menuToggle()">
+          <span></span>
+          <span></span>
+        </div>
+        
+        <div class="device_menu_toggle_off" onclick="menuOff()">
+          <span></span>
+          <span></span>
+        </div>
+
+      </div>
+
+      <div class="device_menu">
+        <div class="sub_menu">
+          <a href="index.html">WORK</a>
+          <a href="About.html">ABOUT</a>
+        </div>
+        <div class="device_menu_index">
+          <a href="./album cover.html">ALBUM COVER</a>
+          <a href="./poster.html">POSTER</a>
+          <a href="./photography.html">PHOTOGRAPHY</a>
+          <a href="./animation.html">ANIMATION</a>
+          <a href="./illustration.html">ILLUSTRATION</a>
+        </div>
       </div>
     </div>
 
@@ -31,27 +56,27 @@
     <div class="gallery_background" id="album_background">
       <div class="gallery">
         <div class="item">
-          <div class="img_container"><img src="./images/index_images/cover_1.jpg" alt=""></div>
+          <div class="img_container"><img src="./images/index_images/cover_1.jpg" alt="" loading="lazy"></div>
            <p class="img_description">01_WORSHIP_SPOTIFY_PLAYLIST </p>
         </div>
         <div class="item">
-          <div class="img_container"><img src="./images/index_images/cover_2.jpg" alt=""></div>
+          <div class="img_container"><img src="./images/index_images/cover_2.jpg" alt="" loading="lazy"></div>
            <p class="img_description">02_LOFI_SPOTIFY_PLAYLIST </p>
         </div>
         <div class="item">
-          <div class="img_container"><img src="./images/index_images/cover_3.jpg" alt=""></div>
+          <div class="img_container"><img src="./images/index_images/cover_3.jpg" alt="" loading="lazy"></div>
            <p class="img_description">03_BESTILL_SPOTIFY_PLAYLIST </p>
         </div>
         <div class="item">
-          <div class="img_container"><img src="./images/index_images/cover_4.jpg" alt=""></div>
+          <div class="img_container"><img src="./images/index_images/cover_4.jpg" alt="" loading="lazy"></div>
            <p class="img_description">04_FUNKYHOP_SPOTIFY_PLAYLIST </p>
         </div>
         <div class="item">
-          <div class="img_container"><img src="./images/index_images/cover_5.jpg" alt=""></div>
+          <div class="img_container"><img src="./images/index_images/cover_5.jpg" alt="" loading="lazy"></div>
            <p class="img_description">05_THE_ART_OF_SCULPTURE_SPOTIFY_PLAYLIST </p>
         </div>
         <div class="item">
-          <div class="img_container"><img src="./images/index_images/cover_6.jpg" alt=""></div>
+          <div class="img_container"><img src="./images/index_images/cover_6.jpg" alt="" loading="lazy"></div>
            <p class="img_description">05_NO_ES_EL_FINAL_SONG_COVER </p>
         </div>
     </div>
@@ -67,8 +92,8 @@
     </div>
 
     <div class="cursor"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="app.js"></script>
-
 
   </body>
 </html>
