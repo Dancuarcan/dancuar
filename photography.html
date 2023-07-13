@@ -70,7 +70,7 @@
             <!-- <p class="arrow" id= "arrow_left" onclick="prev()"><</p> -->
         <div class="click_next" onclick="next()"></div>
         <div class="item" id="photography_frame">
-          <div class="photography_img_container"><img src="./images/index_images/photography_1.1.jpg" alt="" id="img_displayed" loading="lazy"></div>
+          <div class="photography_img_container"><img src="./images/index_images/photography_1.1.jpg" alt="" id="img_displayed"></div>
       </div>
     </div>
 
@@ -90,7 +90,7 @@
 
         var loadingAnimation = gsap.timeline(); 
 
-        loadingAnimation.to(".loadingSquare", {duration: .2, opacity: 1, stagger: .08, ease: "power4.inOut"});
+        loadingAnimation.to(".loadingSquare", {repeat: 2, duration: .7, opacity: 1, stagger: .08, ease: "power4.inOut"});
         loadingAnimation.to(".loadingSquare", {duration: .2, opacity: 0, stagger: .08, ease: "power4.inOut"});
         loadingAnimation.to(".loadingOverlay", {duration: .5, opacity: 0, ease: "power4.inOut"});
         loadingAnimation.from(".photography_img_container", {duration:.5, opacity: 0, delay:-.5, y:-10, ease: "power4.inOut"});
