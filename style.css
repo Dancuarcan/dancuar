@@ -29,6 +29,7 @@ html, body {
   background-color: rgb(24, 24, 24);
   user-select: none;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .loadingAnimationBox {
@@ -585,7 +586,7 @@ html, body {
 
 #photography_background {
   position: absolute;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   overflow: hidden;
   display: flex;
@@ -597,7 +598,7 @@ html, body {
 #photography_gallery {
   position: absolute;
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   justify-content: center;
   align-items: center;
@@ -623,6 +624,7 @@ html, body {
   z-index: 3;
   position: absolute;
   overflow: hidden;
+
 }
 
 #img_displayed{
