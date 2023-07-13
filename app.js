@@ -13,7 +13,6 @@ document.addEventListener ('mousemove', moveCursor);
             cursor.style.left = x + "px" ;
             cursor.style.top = y + "px" ;
             cursor.style.display = 'block';
-            document.body.style.cursor = 'none';
             } else {
             cursor.style.display = "none";  
             document.body.style.cursor = 'auto';

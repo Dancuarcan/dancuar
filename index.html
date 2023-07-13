@@ -97,11 +97,10 @@
     const landingLoad =() =>{
 
       var loadingAnimation = gsap.timeline(); 
-
       loadingAnimation.to(".loadingSquare", {repeat: 1, duration: .7, opacity: 1, delay:.2, stagger: .08, ease: "power4.inOut"});
       loadingAnimation.to(".loadingSquare", {duration: .7, opacity: 0, delay:-.2, stagger: .06, ease: "power4.inOut"});
       loadingAnimation.to(".loadingOverlay", {duration: 0, opacity: 0, delay:-.2,ease: "power4.inOut"});
-      
+
       loadingAnimation.to(".load_row", {duration: 1, opacity: 0, y:20, stagger: .06, delay:-.5, ease: "power4.inOut"});
       loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on", {duration: .08, opacity: 0, delay:-.7, y:-20, stagger: .06});      
     }
