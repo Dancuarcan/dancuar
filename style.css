@@ -593,7 +593,7 @@ html, body {
 
 #photography_gallery {
   position: absolute;
-  height: 97vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1184,5 +1184,6 @@ canvas.active{
     width: 100%;
     transform: translateY(-3%);
     position: absolute;
+    overflow: hidden;
   }
 }
