@@ -11,6 +11,8 @@
 
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   </head>
 
   <body>
@@ -75,6 +77,23 @@
       <a href="https://www.pinterest.es/Dancuarcan/" target="_blank" rel="noreferrer noopener">PINTEREST</a>
     </div>
       
+    
+    <script>
+      const loadingAnimation =() =>{
+
+        var loadingAnimation = gsap.timeline(); 
+
+        loadingAnimation.from(".img_container", {duration: .7, opacity: 0, y:-10, delay:.2,stagger: .06, ease: "power4.inOut"});
+        loadingAnimation.to(".description p", {duration: .3, delay: -.5, opacity: 1, stagger: .06, ease: "power4.inOut"});    
+        loadingAnimation.to(".footer a", {duration: 0, y:-10, delay: -1}); 
+        loadingAnimation.to(".footer a", {duration: .2, opacity: 1, y:0, delay: -.3, stagger: .06}); 
+
+    }
+
+    loadingAnimation();
+    </script>
+
+
     <div class="cursor"></div>
     <script src="app.js"></script>
 

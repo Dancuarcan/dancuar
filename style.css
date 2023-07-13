@@ -18,6 +18,35 @@ html, body {
 }
 
 
+.loadingOverlay {
+  position: fixed;
+  z-index: 1001;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(24, 24, 24);
+  user-select: none;
+  pointer-events: none;
+}
+
+.loadingAnimationBox {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loadingSquare {
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #dfdfdf;
+}
+
 .loadGrid {
   position: fixed;
   z-index: 1000;
@@ -29,11 +58,11 @@ html, body {
   pointer-events: none;
 }
 
-.load_column{
+.load_row{
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(24, 24, 24);
 }
 
 .navbar {
@@ -100,7 +129,7 @@ html, body {
   position: fixed;
   display: none;
   z-index: 4;
-  height: 250px;
+  height: 260px;
   width: 100%;
   background-color: #ffffff; 
   transition: .2s;
@@ -137,8 +166,10 @@ html, body {
 
 
 .device_menu_index {
+  width: 100%;
+  z-index: 5;
   position: relative;
-  top: 58px;
+  top: 68px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -286,7 +317,7 @@ html, body {
 /* custom cursor */
 
 .cursor {
-  z-index: 900;
+  z-index: 901;
   animation-name: cursor_fadeIn;
   animation-duration: 1s;
   animation-fill-mode: none;
@@ -429,7 +460,7 @@ html, body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  z-index: 1000;
+  z-index: 900;
   opacity: 1;
   height: 100vh;
   background-color: #ffffffee;
@@ -463,6 +494,7 @@ html, body {
   height: 100%;
   width: auto;
   object-fit: cover;
+  user-select: none;
 }
 
 
@@ -505,6 +537,7 @@ html, body {
 }
 
 .gallery .img_description {
+  opacity: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -530,6 +563,7 @@ html, body {
   animation-timing-function: cubic-bezier(.3, 0, 0, 1);
   animation-delay: var(--delay); */
   opacity: 1;
+  user-select: none;
 }
 
 @keyframes imgFadeIn {
@@ -551,8 +585,9 @@ html, body {
 
 #photography_background {
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 
@@ -573,44 +608,27 @@ html, body {
   min-height: 100px;
   display: flex;
   justify-content: center;
-  animation-name: imgFadeIn;
+  /* animation-name: imgFadeIn;
   animation-duration: 3s;
   animation-fill-mode: none;
   animation-timing-function: cubic-bezier(.3, 0, 0, 1);
-  animation-delay: var(--delay);
+  animation-delay: var(--delay); */
 }
 
 .click_next {
   width: 1100px;
-  transform: translateY(-3%);
+  transform: translateY(-2%);
   height: 75vh;
   z-index: 3;
   position: absolute;
 }
 
-.photography_gallery .img_description {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.photography_gallery p{
-  font-family: "input-mono", monospace;
-  font-weight: 400;
-  font-style: normal;
-  color: #4b4b4b;
-  font-size: .9rem;
-  padding-top: 24px;
-}
-
 #img_displayed{
+  transform: translateY(-3%);
   object-fit: cover;
   width: 100%;
   height: auto;
   user-select: none;
-}
-
-#photography_description {
-  padding-top: 3rem;
 }
 
 
@@ -651,6 +669,7 @@ html, body {
 
 .index .container {
   position: relative;
+  opacity: 0;
 }
 
 .index a{
@@ -809,6 +828,7 @@ html, body {
 }
 
 .about .description p{
+  opacity: 0;
   font-family: "input-mono", monospace;
   font-weight: 400;
   font-style: normal;
@@ -860,6 +880,11 @@ canvas.active{
 
 /*Footer*/
 
+
+.footer.landing a{
+  opacity: 1;
+}
+
 .footer{
   z-index: 100;
   width: 100%;
@@ -875,6 +900,7 @@ canvas.active{
 }
 
 .footer a{
+  opacity: 0;
   display: flex;
   color: #424242;
   text-decoration: none;
@@ -891,7 +917,6 @@ canvas.active{
   flex-direction: row;
   justify-content: space-between;
   padding: 2.5em  3em;
-  bottom: 0px;
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 400;
   font-style: normal; 
@@ -1000,6 +1025,17 @@ canvas.active{
 
 @media only screen and (max-width: 790px){
 
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: auto;
+  }
+
+  .cursor {
+    display: none;
+  }
+
   .menu {
     display: none;
   }
@@ -1029,23 +1065,13 @@ canvas.active{
     align-items: center;
     min-height: 1000px;
     padding-top: 15%;
+    padding-bottom: 15%;
     
   }
   
 }
 
 @media only screen and (max-width: 710px) {
-
- *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: auto;
-  }
-
-  .cursor {
-    display: none;
-  }
 
   .navbar {
     padding: .3rem .5rem;
@@ -1076,16 +1102,17 @@ canvas.active{
 
 
   #album_background {
-    height: 4500px;
+    height: auto;
   }
   .gallery {
     padding-left: 0px;
     justify-content: start;
     padding-top: 15%;
+    padding-bottom: 15%;
+    height: auto;
     flex-direction: column;
     position: absolute;
     width: 100%;
-    height: 2500px;
     gap: 60px;
   }
 
@@ -1096,7 +1123,7 @@ canvas.active{
   }
 
   #poster_background {
-    height: 3900px;
+    height: auto;
   }
 
 
@@ -1109,7 +1136,6 @@ canvas.active{
     object-fit: cover;
     height: auto;
     width: 100%;
-    user-select: none;
   }
 
   .photography_img_container {

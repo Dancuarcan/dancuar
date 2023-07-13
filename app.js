@@ -2,13 +2,14 @@ let cursor =document.querySelector ('.cursor');
 const ImageArray = [...document.querySelectorAll('.gallery img')]
 
 
+
 document.addEventListener ('mousemove', moveCursor);
 
     function moveCursor(e){
             let x = e.clientX;
             let y = e.clientY;
 
-            if(window.innerWidth > 710){
+            if(window.innerWidth > 790){
             cursor.style.left = x + "px" ;
             cursor.style.top = y + "px" ;
             cursor.style.display = 'block';
@@ -94,9 +95,7 @@ for(let i= 0; i < index.length; i++){
 
 
 const frame = document.getElementById('img_displayed')
-var imgCount = document.getElementById('photography_imgCount')
 var photographyImages = [
-    './images/index_images/photography_1.1.jpg',
     './images/index_images/photography_2.jpg',
     './images/index_images/photography_3.jpg',
     './images/index_images/photography_4.jpg',
@@ -114,6 +113,7 @@ var photographyImages = [
     './images/index_images/photography_16.jpg',
     './images/index_images/photography_17.jpg',
     './images/index_images/photography_18.jpg',
+    './images/index_images/photography_1.1.jpg',
     
 ]
 
@@ -142,15 +142,14 @@ function prev(){
 }
 
 function next(){
-    if(i >= photographyImages.length -1) i = -1;
+    if(i >= photographyImages.length -1) i = -1;  
     i++;
     return setImg();
 }
 
 function setImg(){
-    return frame.setAttribute('src', photographyImages[i]),
-    imgCount.innerText = `${i+1}/${photographyImages.length}`;
-}
+    return frame.setAttribute('src', photographyImages[i]) 
+};
 
 const nextButton= document.querySelector('.photography_gallery .click_next');
 let NEXT = document.createElement('p');
@@ -328,13 +327,9 @@ device_menu_toggle_on.addEventListener('mouseleave', ()=>{
 });
 
 
-
-
 //animations
 
-gsap.from(".img_container, .img_description, #poster_img_container", {duration: .3, delay: .5, opacity: 0, y:-10,stagger: .06, ease: "power4.inOut"});    
 
-gsap.from(".index .container", {duration: .08, opacity: 0, delay:.5, y:-10, stagger: .06});    
 
 
 

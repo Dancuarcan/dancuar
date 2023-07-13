@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sketch</title>
+    <title>Dancuar portafolio</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/pkq7yxb.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -15,17 +15,26 @@
 
   <body>
 
+    <div class="loadingOverlay">
+      <div class="loadingAnimationBox">
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+      </div>
+    </div>
+
     <div class="loadGrid">
-      <div class="load_column"></div>
-      <div class="load_column"></div>
-      <div class="load_column"></div>
-      <div class="load_column"></div>
-      <div class="load_column"></div>
-      <div class="load_column"></div>
-      <div class="load_column"></div>
-      <div class="load_column"></div>
-      <div class="load_column"></div>
-      <div class="load_column"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
+      <div class="load_row"></div>
     </div>
     <div class="navbar_wrapper">
       <div class="navbar">
@@ -65,11 +74,11 @@
     </div>
 
 
-    <div class="note">
+    <!-- <div class="note">
       <p>note: website it's still under construction, designed and developed by me.</p>
-    </div>
+    </div> -->
  
-    <div class="footer">
+    <div class="footer landing">
       <a href="mailto:jdcuartas2013@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
       
       <a href="https://www.instagram.com/dancuar/" target="_blank" rel="noreferrer noopener">INSTAGRAM</a>
@@ -86,8 +95,15 @@
 
 
     const landingLoad =() =>{
-     gsap.to(".load_column", {duration: 1, delay: .5, opacity: 0, y:20, stagger: .06, ease: "power4.inOut"});
-     gsap.from(".navbar a, .footer a, .device_menu_toggle_on", {duration: .08, opacity: 0, delay:1.3, y:-20, stagger: .06});      
+
+      var loadingAnimation = gsap.timeline(); 
+
+      loadingAnimation.to(".loadingSquare", {repeat: 1, duration: .7, opacity: 1, delay:.2, stagger: .08, ease: "power4.inOut"});
+      loadingAnimation.to(".loadingSquare", {duration: .7, opacity: 0, delay:-.2, stagger: .06, ease: "power4.inOut"});
+      loadingAnimation.to(".loadingOverlay", {duration: 0, opacity: 0, delay:-.2,ease: "power4.inOut"});
+      
+      loadingAnimation.to(".load_row", {duration: 1, opacity: 0, y:20, stagger: .06, delay:-.5, ease: "power4.inOut"});
+      loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on", {duration: .08, opacity: 0, delay:-.7, y:-20, stagger: .06});      
     }
 
     landingLoad();
