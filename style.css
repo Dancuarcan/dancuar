@@ -621,6 +621,7 @@ html, body {
   height: 75vh;
   z-index: 3;
   position: absolute;
+  overflow: hidden;
 }
 
 #img_displayed{
