@@ -74,6 +74,28 @@
     </div>
 
 
+    <div class="grid_layout">
+      <div class="item item-1">
+        <img src="./images/index_images/cover_5.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-2">
+        <img src="./images/index_images/photography_19.jpg" alt="" loading="lazy"></img>
+      </div> 
+      <div class="item item-3">
+        <img src="./images/index_images/cover_1.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-4">
+        <img src="./images/index_images/animation_2.gif" alt="" loading="lazy"></img>
+      </div>    
+      <div class="item item-5">
+        <img src="./images/index_images/fire_chamber_logo.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-6">
+        <img src="./images/index_images/animation_1.gif" alt="" loading="lazy"></img>
+      </div>
+    </div>
+
+
     <!-- <div class="note">
       <p>note: website it's still under construction, designed and developed by me.</p>
     </div> -->
@@ -102,7 +124,7 @@
       loadingAnimation.to(".loadingOverlay", {duration: 0, opacity: 0, delay:-.2,ease: "power4.inOut"});
 
       loadingAnimation.to(".load_row", {duration: 1, opacity: 0, y:20, stagger: .06, delay:-.5, ease: "power4.inOut"});
-      loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on", {duration: .08, opacity: 0, delay:-.7, y:-20, stagger: .06});      
+      loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on, .item", {duration: .08, opacity: 0, delay:-.7, y:-20, stagger: .06});      
     }
 
     landingLoad();
