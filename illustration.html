@@ -16,6 +16,16 @@
   </head>
 
   <body>
+
+    <div class="loadingOverlay">
+      <div class="loadingAnimationBox">
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+      </div>
+    </div>
+
     <div class="navbar_wrapper">
       <div class="navbar">
         <div class="logo">
@@ -53,46 +63,63 @@
         </div>
       </div>
     </div>
- 
-    <section class="about">
-        <div class="img_container">
-          <img src="./images/self_portrait.jpg" alt="self_portrait">
+
+
+    <div class="gallery_background" id="illustration_background">
+      <div class="gallery">
+        <div class="item">
+          <div class="img_container" ><img src="./images/index_images/illustration_1.jpg" alt=""></div>
+           <p class="img_description">01_WORSHIP_SPOTIFY_PLAYLIST </p>
         </div>
-        <div class="description">
-          <p>Hello! I'm Daniel, a graphic designer and multidiciplinary artist. Very passionate for visual exploration and achieving something new and refreshing.</p>
-          <p>Available for commissions and/or collaborations.</p>
-          <p>Feel free to reach out via <a href="mailto:jdcuartas2013@gmail.com">email</a> (jdcuartas2013@gmail.com) or <a href="https://www.instagram.com/dancuar/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+        <div class="item">
+          <div class="img_container" ><img src="./images/index_images/illustration_2.jpg" alt=""></div>
+           <p class="img_description">02_LOFI_SPOTIFY_PLAYLIST </p>
         </div>
-        <div class="description">
-          <p>NOTE: WEBSITE IT'S STILL UNDER CONSTRUCTION, SO SOME STUFF MIGHT BE A LITTLE BUGGY.</p>
-          <p>WEBSITE DEVELOPED AND DESIGNED BY ME.</p>
+        <div class="item">
+          <div class="img_container" ><img src="./images/index_images/illustration_3.jpg" alt=""></div>
+           <p class="img_description">03_BESTILL_SPOTIFY_PLAYLIST </p>
         </div>
-    </section>
+    </div>
+    </div>
     
+ 
     <div class="footer">
-      <a href="mailto:jdcuartas2013@gmail.com"><img src="./images/mail_icon.svg" alt="" id="mail_icon"></a>
+      <a href="mailto:jdcuartas2013@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
       
       <a href="https://www.instagram.com/dancuar/" target="_blank" rel="noreferrer noopener">INSTAGRAM</a>
       <a href="https://www.are.na/dan-cuartas" target="_blank" rel="noreferrer noopener">ARE.NA</a>
       <a href="https://www.pinterest.es/Dancuarcan/" target="_blank" rel="noreferrer noopener">PINTEREST</a>
     </div>
-      
-    
+
+
     <script>
       const loadingAnimation =() =>{
 
         var loadingAnimation = gsap.timeline(); 
 
-        loadingAnimation.from(".img_container", {duration: .7, opacity: 0, y:-10, delay:.2,stagger: .06, ease: "power4.inOut"});
-        loadingAnimation.to(".description p", {duration: .3, delay: -.5, opacity: 1, stagger: .06, ease: "power4.inOut"});    
+        loadingAnimation.add(function(){
+        document.body.style.overflow = "hidden";
+        });
+        loadingAnimation.to(".loadingSquare", {duration: .2, opacity: 1, stagger: .08, ease: "power4.inOut"});
+        loadingAnimation.to(".loadingSquare", {duration: .2, opacity: 0, stagger: .08, ease: "power4.inOut"});
+        loadingAnimation.add(function(){
+          document.body.style.overflow = "auto";
+        });
+        loadingAnimation.to(".loadingOverlay", {duration: .5, opacity: 0, ease: "power4.inOut"});
+        loadingAnimation.add(function(){
+          let loadingOverlay = document.querySelector('.loadingOverlay');
+          loadingOverlay.style.display = 'none';
+          document.body.style.overflow = "auto";
+        });
+        loadingAnimation.from(".img_container, #poster_img_container", {duration: .7, opacity: 0, delay: -.4, y:-10,stagger: .06, ease: "power4.inOut"});
+        loadingAnimation.to(".img_description", {duration: .3, delay: -.5, opacity: 1, stagger: .06, ease: "power4.inOut"});    
         loadingAnimation.to(".footer a", {duration: 0, y:-10, delay: -1}); 
-        loadingAnimation.to(".footer a", {duration: .2, opacity: 1, y:0, delay: -.3, stagger: .06}); 
+        loadingAnimation.to(".footer a", {duration: .2, opacity: 1, y:0, delay: -.5, stagger: .06}); 
 
     }
 
     loadingAnimation();
     </script>
-
 
     <div class="cursor"></div>
     <script src="app.js"></script>

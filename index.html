@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dancuar portafolio</title>
+    <title>Dancuar</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/pkq7yxb.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -82,16 +82,40 @@
         <img src="./images/index_images/photography_19.jpg" alt="" loading="lazy"></img>
       </div> 
       <div class="item item-3">
-        <img src="./images/index_images/cover_1.jpg" alt="" loading="lazy"></img>
+        <img src="./images/index_images/animation_1.gif" alt="" loading="lazy"></img>
       </div>
       <div class="item item-4">
+        <img src="./images/index_images/poster_2.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-5">
         <img src="./images/index_images/animation_2.gif" alt="" loading="lazy"></img>
       </div>    
-      <div class="item item-5">
+      <div class="item item-6">
         <img src="./images/index_images/fire_chamber_logo.jpg" alt="" loading="lazy"></img>
       </div>
-      <div class="item item-6">
-        <img src="./images/index_images/animation_1.gif" alt="" loading="lazy"></img>
+      <div class="item item-7">
+        <img src="./images/index_images/poster_3.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-8">
+        <img src="./images/index_images/cover_1.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-9">
+        <img src="./images/index_images/collage_1.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-10">
+        <img src="./images/index_images/poster_4.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-11">
+        <img src="./images/index_images/collage_2.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-12">
+        <img src="./images/index_images/experiment_1.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-13">
+        <img src="./images/index_images/poster_1.1.jpg" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-14">
+        <img src="./images/index_images/illustration_1.jpg" alt="" loading="lazy"></img>
       </div>
     </div>
 
@@ -104,7 +128,7 @@
       <a href="mailto:jdcuartas2013@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
       
       <a href="https://www.instagram.com/dancuar/" target="_blank" rel="noreferrer noopener">INSTAGRAM</a>
-      <a href="https://dancuar.tumblr.com/" target="_blank" rel="noreferrer noopener">TUMBLR</a>
+      <a href="https://www.are.na/dan-cuartas" target="_blank" rel="noreferrer noopener">ARE.NA</a>
       <a href="https://www.pinterest.es/Dancuarcan/" target="_blank" rel="noreferrer noopener">PINTEREST</a>
     </div>
 
@@ -119,12 +143,22 @@
     const landingLoad =() =>{
 
       var loadingAnimation = gsap.timeline(); 
+
+      
+      loadingAnimation.add(function(){
+        document.body.style.overflow = "hidden";
+      });
       loadingAnimation.to(".loadingSquare", {repeat: 1, duration: .7, opacity: 1, delay:.2, stagger: .08, ease: "power4.inOut"});
       loadingAnimation.to(".loadingSquare", {duration: .7, opacity: 0, delay:-.2, stagger: .06, ease: "power4.inOut"});
       loadingAnimation.to(".loadingOverlay", {duration: 0, opacity: 0, delay:-.2,ease: "power4.inOut"});
+      loadingAnimation.add(function(){
+        let loadingOverlay = document.querySelector('.loadingOverlay');
+        loadingOverlay.style.display = 'none';
+        document.body.style.overflow = "auto";
+      });
 
       loadingAnimation.to(".load_row", {duration: 1, opacity: 0, y:20, stagger: .06, delay:-.5, ease: "power4.inOut"});
-      loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on, .item", {duration: .08, opacity: 0, delay:-.7, y:-20, stagger: .06});      
+      loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on, .item", {duration: .2, opacity: 0, delay:-1.1, y:-20, stagger: .05});      
     }
 
     landingLoad();

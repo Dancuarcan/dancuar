@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sketch</title>
+    <title>Dancuar</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/pkq7yxb.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -78,7 +78,7 @@
       <a href="mailto:jdcuartas2013@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
       
       <a href="https://www.instagram.com/dancuar/" target="_blank" rel="noreferrer noopener">INSTAGRAM</a>
-      <a href="https://dancuar.tumblr.com/" target="_blank" rel="noreferrer noopener">TUMBLR</a>
+      <a href="https://www.are.na/dan-cuartas" target="_blank" rel="noreferrer noopener">ARE.NA</a>
       <a href="https://www.pinterest.es/Dancuarcan/" target="_blank" rel="noreferrer noopener">PINTEREST</a>
     </div>
 
@@ -92,6 +92,11 @@
         loadingAnimation.to(".loadingSquare", {repeat: 2, duration: .7, opacity: 1, stagger: .08, ease: "power4.inOut"});
         loadingAnimation.to(".loadingSquare", {duration: .2, opacity: 0, stagger: .08, ease: "power4.inOut"});
         loadingAnimation.to(".loadingOverlay", {duration: .5, opacity: 0, ease: "power4.inOut"});
+        loadingAnimation.add(function(){
+        let loadingOverlay = document.querySelector('.loadingOverlay');
+        loadingOverlay.style.display = 'none';
+        });
+        
         loadingAnimation.from(".photography_img_container", {duration:.5, opacity: 0, delay:-.5, y:-10, ease: "power4.inOut"});
         loadingAnimation.to(".footer a", {duration: 0, y:-10, delay: -1}); 
         loadingAnimation.to(".footer a", {duration: .2, opacity: 1, y:0, delay: -.2, stagger: .06}); 

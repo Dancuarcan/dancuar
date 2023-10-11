@@ -10,14 +10,18 @@ document.addEventListener ('mousemove', moveCursor);
             let y = e.clientY;
 
             if(window.innerWidth > 790){
-            cursor.style.left = x + "px" ;
-            cursor.style.top = y + "px" ;
+            cursor.style.left = `${x}px` ;
+            cursor.style.top = `${y}px` ;
             cursor.style.display = 'block';
             } else {
             cursor.style.display = "none";  
             document.body.style.cursor = 'auto';
             }
  }
+
+
+
+
 
 
 
@@ -80,15 +84,18 @@ for(let i= 0; i < index.length; i++){
 
  const gallery = document.querySelector('.gallery')
 
- window.onscroll = () =>{
+ if(gallery){
+    window.onscroll = () =>{
 
-    if(window.innerWidth > 710){
-        gallery.style.left = `${-window.scrollY}px`
-    } else {
-        gallery.style.left = "0px"
-    }
-
+        if(window.innerWidth > 710){
+            gallery.style.left = `${-window.scrollY}px`
+        } else {
+            gallery.style.left = "0px"
+        }
+    
+     }    
  }
+
 
 
 
@@ -151,9 +158,10 @@ function setImg(){
 };
 
 const nextButton= document.querySelector('.photography_gallery .click_next');
-let NEXT = document.createElement('p');
+let NEXT = document.createElement('img');
+    NEXT.classList.add('next_icon');
     cursor.appendChild(NEXT);
-    NEXT.innerText = '👉';
+    NEXT.src = './images/next_icon.png'; 
 
 if(nextButton){
 
@@ -176,9 +184,10 @@ if(nextButton){
 }
 
 
-let view = document.createElement('p');
+let view = document.createElement('img');
     cursor.appendChild(view);
-    view.innerText = '👀';
+    view.classList.add('view_icon');
+    view.src = './images/view_icon.png';
 
 
 for(let i = 0; i < ImageArray.length; i++){
@@ -224,7 +233,6 @@ for(let i = 0; i < ImageArray.length; i++){
 
     image.addEventListener('mouseover',()=>{
         // cursor.style.display = 'none';
-        cursor.classList.add('change');     
     })
 
     image.addEventListener('mouseleave',()=>{
@@ -308,7 +316,7 @@ window.addEventListener("resize", ()=> {
         device_menu_toggle_on.style.display = 'none'; 
         device_menu.classList.remove('displayed');
 
-    } else if(window.innerWidth < 790) {
+    } else if(window.innerWidth <= 790) {
 
         device_menu_toggle_off.style.display = 'none';
         device_menu_toggle_on.style.display = 'flex'; 

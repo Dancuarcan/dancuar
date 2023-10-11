@@ -5,16 +5,21 @@
   cursor: none; 
 }
 
-html, body {
-  margin: 0px;
-  padding: 0px;
-  background-color: #ffffff;
-}
-
 
 :root {
   --menuFontsize: 2.1rem;
   --logoFontsize: 3rem;
+  --backgroundColor: #ffffff;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  background-color: var(--backgroundColor);
+}
+
+body {
+  height: 100%;
 }
 
 
@@ -28,7 +33,6 @@ html, body {
   align-items: center;
   background-color: rgb(24, 24, 24);
   user-select: none;
-  pointer-events: none;
   overflow: hidden;
 }
 
@@ -188,10 +192,10 @@ html, body {
   color: #757575;
   user-select: none;
   text-decoration: none;
-  cursor: pointer;
   opacity: 0;
   transition: .1s;
 }
+
 
 .device_menu_index a.active {
   text-decoration: none;
@@ -203,6 +207,8 @@ html, body {
   user-select: none;
   text-decoration: none;
   opacity: 1;
+  cursor: pointer;
+
 }
 
 /* Index navbar animation */
@@ -280,25 +286,25 @@ html, body {
 /* custom cursor */
 
 .cursor {
-  z-index: 901;
-  animation-name: cursor_fadeIn;
+  z-index: 1001;
+  /* animation-name: cursor_fadeIn;
   animation-duration: 1s;
   animation-fill-mode: none;
   animation-timing-function: cubic-bezier(.3, 0, 0, 1);
-  animation-delay: var(--delay);
+  animation-delay: var(--delay); */
 
-  display: none;
+
   position: fixed;
-  left: -200px;
-  top: -200px;
-  height: .9rem;
-  width: .9rem;
-  background-color: #000;
+  top: -100vh;
+  height: 1rem;
+  width: 1rem;
+  background-color: #ffffff;
   transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 0%;
-  transition: width 0.5s, height 0.5s;
-  transition: background-color 0.5s;
+  /* transition: width 0.5s, height 0.5s;
+  transition: background-color 0.5s; */
+  mix-blend-mode: difference;
 }
 
 .cursor.overImg {
@@ -312,10 +318,10 @@ html, body {
   border-radius: 50%;
     height: 4rem;
     width: 4rem;
-
+    mix-blend-mode: normal;
 }
 
-.cursor p:nth-child(1){
+.next_icon {
   display: none;
   animation-name: cursor_apear;
   animation-duration: 1s;
@@ -323,15 +329,12 @@ html, body {
   animation-timing-function: cubic-bezier(.3, 0, 0, 1);
   animation-delay: var(--delay);
   position: absolute;
-  transform: translate(40%, 25%);
-  font-family: "neue-haas-grotesk-display", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  color: #ffffff;
-  font-size: 1.6rem;
+  transform: translate(35%, 55%);
+  height: auto;
+  width: 40px;
 }
 
-.cursor p:nth-child(2){
+.view_icon {
   display: none;
   animation-name: cursor_apear;
   animation-duration: 1s;
@@ -339,14 +342,10 @@ html, body {
   animation-timing-function: cubic-bezier(.3, 0, 0, 1);
   animation-delay: var(--delay);
   position: absolute;
-  transform: translate(35%, 35%);
-  font-family: "neue-haas-grotesk-display", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  color: #ffffff;
-  font-size: 1.6rem;
+  transform: translate(40%, 60%);
+  height: auto;
+  width: 33px;
 }
-
 
 
 @keyframes cursor_overImg {
@@ -373,11 +372,11 @@ html, body {
 }
 
 .cursor.change {
-  transition: background-color 0.5s;
   background-color: #dd3b0a;
+  mix-blend-mode: normal;
 }
 
-@keyframes cursor_fadeIn {
+/* @keyframes cursor_fadeIn {
   from {
     display: none;
     border-radius: 50%;
@@ -387,11 +386,12 @@ html, body {
     display: block;
     border-radius: 5%;
   } 
-}
+} */
 
 
 .grid_layout{
   width: 100%;
+  height: 100%;
   position: relative;
   display: grid;
   padding: 5rem 2rem;
@@ -415,19 +415,67 @@ html, body {
 
 .item-3 {
   grid-area: 2 / 1 / 2 / 5;
+  align-self: center;
 }
 
+
 .item-4 {
-  grid-area: 2 / 5 / 2 / 8;
+  grid-area: 2 / 5 / 2 / 9;
 }
 
 .item-5 {
-  grid-area: 3 / 9 / 3 / 13;
+  grid-area: 2 / 9 / 2 / 13;
+  align-self: center;
 }
 
 .item-6 {
-  grid-area: 3 / 6 / 3 / 9;
+  grid-area: 3 / 1 / 3 / 5;  
+  align-self: center;
 }
+
+
+.item-7 {
+  grid-area: 3 / 5 / 3 / 9;
+}
+
+.item-8 {
+  grid-area: 3 / 9 / 3 / 13;
+  align-self: center;
+}
+
+
+.item-9 {
+  grid-area: 4 / 1 / 4 / 5;
+  align-self: center;
+}
+
+.item-10 {
+  grid-area: 4 / 5 / 4 / 9;
+}
+
+
+.item-11 {
+  grid-area: 4 / 9 / 4 / 13;
+  align-self: center;
+}
+
+
+.item-12 {
+  grid-area: 5 / 1 / 5 / 5;
+  align-self: center;
+}
+
+.item-13 {
+  grid-area: 5 / 5 / 5 / 9;
+}
+
+
+.item-14 {
+  grid-area: 5 / 9 / 5 / 13;
+  align-self: center;
+}
+
+
 
 .grid_layout img{
   width: 100%;
@@ -517,6 +565,12 @@ html, body {
   width: 100%;
 }
 
+#illustration_background {
+  position: absolute;
+  height: 2100px;
+  width: 100%;
+}
+
 #poster_img_container {
   overflow: hidden;
   height: 65vh;
@@ -529,15 +583,13 @@ html, body {
 
 .gallery {
   position: fixed;
-  left: 0;
   height:  97vh;
-  padding-left: 40px;
   width: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  gap: 80px;
+  padding: 5rem 0;
 }
 
 .gallery .img_description {
@@ -557,9 +609,14 @@ html, body {
   padding-top: 12px;
 }
 
+.gallery .item {
+  margin-left: 2rem;
+}
+
 .gallery .item .img_container{
   overflow: hidden;
   height: 65vh;
+  max-height: 650px;
   /* animation-name: imgFadeIn;
   animation-duration: 3s;
   animation-fill-mode: none;
@@ -567,15 +624,6 @@ html, body {
   animation-delay: var(--delay); */
   opacity: 1;
   user-select: none;
-}
-
-@keyframes imgFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .gallery .img_container img{
@@ -887,7 +935,7 @@ canvas.active{
 
 
 .footer.landing {
-  background-color: #ffffff;
+  background-color: var(--backgroundColor);
   opacity: 1;
 }
 
@@ -896,13 +944,14 @@ canvas.active{
 }
 
 .footer{
+  background-color: var(--backgroundColor);
   z-index: 100;
   width: 100%;
   position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1.5em  3em;
+  padding: 1em  3em;
   bottom: 0px;
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 400;
@@ -1050,6 +1099,14 @@ canvas.active{
     display: none;
   }
 
+  body a{
+    cursor: pointer;
+  }
+
+  .gallery .img_container img{
+    cursor: pointer;
+  }
+
   .device_menu_toggle_on{
     display: flex;
   }
@@ -1077,6 +1134,14 @@ canvas.active{
     padding-top: 15%;
     padding-bottom: 15%;
     
+  }
+
+  .footer img:hover{
+    cursor: pointer;
+  }
+
+  .click_next:hover{
+    cursor: pointer;
   }
   
 }
@@ -1116,6 +1181,7 @@ canvas.active{
 }
 
 
+
 @media only screen and (max-width: 710px) {
 
   .navbar {
@@ -1133,6 +1199,7 @@ canvas.active{
 
   .grid_layout{
     width: 100%;
+    height: auto;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1159,23 +1226,30 @@ canvas.active{
     height: auto;
   }
   .gallery {
-    padding-left: 0px;
     justify-content: start;
-    padding-top: 15%;
-    padding-bottom: 15%;
+    padding: 5rem 1rem;
     height: auto;
     flex-direction: column;
     position: relative;
     width: 100%;
-    gap: 60px;
+  }
+
+  .gallery .item {
+    margin-left: 0;
+    margin-bottom: 2rem;
   }
 
   .gallery .item .img_container {
     width: 100%;
     height: auto;
+    max-height: 1000px;
   }
 
   #poster_background {
+    height: auto;
+  }
+
+  #illustration_background {
     height: auto;
   }
 
