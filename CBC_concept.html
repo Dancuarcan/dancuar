@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dancuar</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/pkq7yxb.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="loadingOverlay">
+      <div class="loadingAnimationBox">
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+        <div class="loadingSquare"></div>
+      </div>
+    </div>
+
+    <div class="navbar_wrapper">
+      <div class="navbar">
+        <div class="logo">
+          <a href="./index.html">DANCUAR</a>
+        </div>
+        <div class="menu">
+          <a href="index.html">WORK<div class="line"></div></a>
+          <a href="indx.html">INDEX<div class="line"></div></a>
+          <a href="About.html">ABOUT<div class="line"></div></a>
+        </div>
+
+        <div class="device_menu_toggle_on" onclick="menuToggle()">
+          <span></span>
+          <span></span>
+        </div>
+        
+        <div class="device_menu_toggle_off" onclick="menuOff()">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="device_menu">
+        <div class="sub_menu">
+          <a href="index.html">WORK</a>
+          <a href="About.html">ABOUT</a>
+        </div>
+        <div class="device_menu_index">
+          <a href="./Animation.html">ANIMATION</a>
+          <a href="./album_cover.html">ALBUM COVER</a>
+          <a href="./photography.html">PHOTOGRAPHY</a>
+          <a href="./illustration.html">ILLUSTRATION</a>
+          <a href="./poster.html">POSTER</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="grid_CBC">
+      <div class="CBC_text_content">
+        <div class="CBC_column1">
+          <div class="backBtn"><a href="Animation.html">BACK</a></div>
+          <div class="CBC_title"><p>CBC LOGO CONCEPT</p></div>
+        </div>
+        <div class="CBC_column2">
+          <div class="CBC_year"><p>2022</p></div>
+          <div class="CBC_category"><p>ANIMATION</p></div>
+        </div>
+      </div>
+      <div class="video">
+        <div id="CBCvideo" style="padding:56.25% 0 0 0;position:relative;"> <iframe src="https://player.vimeo.com/video/889753092?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="CBC LOGO ANIMATION CONCEPT"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
+      <div class="CBCimg01">
+        <img src="./images/index_images/CBC_logo_fija01.jpg" alt="">
+      </div>
+      <div class="CBCimg02">
+        <img src="./images/index_images/CBC_logo_fija02.jpg" alt="">
+      </div>
+      <div class="CBCimg03">
+        <img src="./images/index_images/CBC_logo_fija03.jpg" alt="">
+      </div>
+    </div>
+
+
+    <!-- <div class="note">
+      <p>note: website it's still under construction, designed and developed by me.</p>
+    </div> -->
+ 
+    <div class="footer landing">
+      <a href="mailto:dancuar.design@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
+      
+      <a href="https://www.instagram.com/dancuar/" target="_blank" rel="noreferrer noopener">INSTAGRAM</a>
+      <a href="https://www.are.na/dan-cuartas" target="_blank" rel="noreferrer noopener">ARE.NA</a>
+      <a href="https://www.pinterest.es/Dancuarcan/" target="_blank" rel="noreferrer noopener">PINTEREST</a>
+    </div>
+
+
+    <div class="cursor"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="app.js"></script>
+    
+    <script>
+      //loading landing page
+      const loadingAnimation =() =>{
+
+      var loadingAnimation = gsap.timeline(); 
+
+      loadingAnimation.add(function(){
+      document.body.style.overflow = "hidden";
+      });
+      loadingAnimation.to(".loadingSquare", {duration: .7, opacity: 1, delay:.2, stagger: .08, ease: "power4.inOut"});
+      loadingAnimation.to(".loadingSquare", {duration: .2, opacity: 0, stagger: .08, ease: "power4.inOut"});
+      loadingAnimation.add(function(){
+        document.body.style.overflow = "auto";
+      });
+      loadingAnimation.to(".loadingOverlay", {duration: .5, opacity: 0, ease: "power4.inOut"});
+      loadingAnimation.add(function(){
+      let loadingOverlay = document.querySelector('.loadingOverlay');
+      loadingOverlay.style.display = 'none';
+      });
+
+      loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on", {duration: .2, opacity: 0, delay:-0.2, y:-20, stagger: .05});
+
+      }
+
+      loadingAnimation();
+    </script>
+
+  </body>
+</html>

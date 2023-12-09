@@ -22,9 +22,6 @@ document.addEventListener ('mousemove', moveCursor);
 
 
 
-
-
-
 document.addEventListener ('mouseout', () =>{
     cursor.style.display = "none";
 });
@@ -334,9 +331,58 @@ device_menu_toggle_on.addEventListener('mouseleave', ()=>{
 });
 
 
-//animations
+//animation section
+
+const AnimationArray = [...document.querySelectorAll('.gallery_animation img')]
+
+const AnimationGallery = document.querySelector('.gallery_animation')
+
+if(AnimationGallery){
+   window.onscroll = () =>{
+
+       if(window.innerWidth > 710){
+        AnimationGallery.style.left = `${-window.scrollY}px`
+       } else {
+        AnimationGallery.style.left = "0px"
+       }
+   
+    }    
+}
 
 
+for(let i = 0; i < AnimationArray.length; i++){
+    const panel = document.createElement('div');
+    panel.classList.add('ProjectView_container');
+    let closeIcon =  document.createElement('p');
+
+    closeIcon.innerText = '[x]';
+    
+
+    AnimationArray[i].addEventListener('mouseover', ()=>{
+        cursor.classList.add('overImg');
+        view.style.display = 'block';
+        // cursor.style.display = 'block';
+        // document.body.style.cursor = 'none';
+    })
+
+    AnimationArray[i].addEventListener('mouseleave', ()=>{
+        cursor.classList.remove('overImg');
+        view.style.display = 'none';
+        // cursor.style.display = 'none';
+        // document.body.style.cursor = 'auto';
+    })
+
+}
 
 
+// Vimeo player mouse off
 
+var vimeoPlayer = document.querySelector('iframe');
+
+vimeoPlayer.addEventListener('mouseover', ()=>{
+    cursor.classList.add('vimeo');
+})
+
+vimeoPlayer.addEventListener('mouseleave', ()=>{
+    cursor.classList.remove('vimeo');
+})

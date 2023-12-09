@@ -17,6 +17,7 @@
 
   <body>
 
+
     <div class="loadingOverlay">
       <div class="loadingAnimationBox">
         <div class="loadingSquare"></div>
@@ -26,8 +27,7 @@
       </div>
     </div>
 
-
-      <div class="navbar_wrapper">
+    <div class="navbar_wrapper">
       <div class="navbar">
         <div class="logo">
           <a href="./index.html">DANCUAR</a>
@@ -47,6 +47,7 @@
           <span></span>
           <span></span>
         </div>
+
       </div>
 
       <div class="device_menu">
@@ -64,16 +65,39 @@
       </div>
     </div>
 
-    <div class="photography_background" id="photography_background">
-      <div class="photography_gallery" id="photography_gallery">
-        <div class="click_next" onclick="next()"></div>
-        <div class="item" id="photography_frame">
-          <div class="photography_img_container"><img src="./images/index_images/photography_1.1.webp" alt="" id="img_displayed"></div>
+
+    <div class="gallery_background" id="animation_background">
+      <div class="gallery_animation">
+        <div class="item">
+          <div class="img_container">
+            <a href="CBC_concept.html">
+              <img src="./images/index_images/CBC_logo.gif" alt="" loading="lazy">
+            </a>
+          </div>
+           <p class="img_description">01_CBC LOGO_CONCEPT </p>
         </div>
-      </div>
+        <div class="item">
+          <div class="img_container">
+            <a href="Garden_Species">
+              <img src="./images/index_images/Garden-Species.gif" alt="" loading="lazy">
+            </a>
+          </div>
+           <p class="img_description">02_GARDEN SPECIES </p>
+        </div>
+        <div class="item">
+          <div class="img_container">
+            <a href="NatureX">
+              <img src="./images/index_images/NatureX.gif" alt="" loading="lazy">
+            </a>
+          </div>
+           <p class="img_description">03_NATUREX_CONCEPT </p>
+        </div>
+    </div>
     </div>
 
+    <div class="ProjectView_container"></div>
 
+ 
     <div class="footer">
       <a href="mailto:dancuar.design@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
       
@@ -82,30 +106,36 @@
       <a href="https://www.pinterest.es/Dancuarcan/" target="_blank" rel="noreferrer noopener">PINTEREST</a>
     </div>
 
-    <div class="cursor"></div>
 
     <script>
       const loadingAnimation =() =>{
 
         var loadingAnimation = gsap.timeline(); 
 
-        loadingAnimation.to(".loadingSquare", {repeat: 2, duration: .7, opacity: 1, stagger: .08, ease: "power4.inOut"});
+        loadingAnimation.add(function(){
+        document.body.style.overflow = "hidden";
+        });
+        loadingAnimation.to(".loadingSquare", {repeat: 1, duration: .7, opacity: 1, delay:.2, stagger: .08, ease: "power4.inOut"});
         loadingAnimation.to(".loadingSquare", {duration: .2, opacity: 0, stagger: .08, ease: "power4.inOut"});
+        loadingAnimation.add(function(){
+          document.body.style.overflow = "auto";
+        });
         loadingAnimation.to(".loadingOverlay", {duration: .5, opacity: 0, ease: "power4.inOut"});
         loadingAnimation.add(function(){
         let loadingOverlay = document.querySelector('.loadingOverlay');
         loadingOverlay.style.display = 'none';
         });
-        
-        loadingAnimation.from(".photography_img_container", {duration:.5, opacity: 0, delay:-.5, y:-10, ease: "power4.inOut"});
+        loadingAnimation.from(".img_container, #poster_img_container", {duration: .7, opacity: 0, delay: -.4, y:-10,stagger: .06, ease: "power4.inOut"});
+        loadingAnimation.to(".img_description", {duration: .3, delay: -.5, opacity: 1, stagger: .06, ease: "power4.inOut"});    
         loadingAnimation.to(".footer a", {duration: 0, y:-10, delay: -1}); 
-        loadingAnimation.to(".footer a", {duration: .2, opacity: 1, y:0, delay: -.2, stagger: .06}); 
+        loadingAnimation.to(".footer a", {duration: .2, opacity: 1, y:0, delay: -.5, stagger: .06}); 
 
     }
 
     loadingAnimation();
     </script>
 
+    <div class="cursor"></div>
     <script src="app.js"></script>
 
   </body>

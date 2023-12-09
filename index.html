@@ -64,11 +64,11 @@
           <a href="About.html">ABOUT</a>
         </div>
         <div class="device_menu_index">
-          <a href="./album cover.html">ALBUM COVER</a>
-          <a href="./poster.html">POSTER</a>
+          <a href="./Animation.html">ANIMATION</a>
+          <a href="./album_cover.html">ALBUM COVER</a>
           <a href="./photography.html">PHOTOGRAPHY</a>
-          <a href="./">ANIMATION</a>
           <a href="./illustration.html">ILLUSTRATION</a>
+          <a href="./poster.html">POSTER</a>
         </div>
       </div>
     </div>
@@ -117,6 +117,16 @@
       <div class="item item-14">
         <img src="./images/index_images/illustration_1.webp" alt="" loading="lazy"></img>
       </div>
+      <div class="item item-15">
+        <img src="./images/index_images/CBC_logo.gif" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-16">
+        <img src="./images/index_images/Garden-Species.gif" alt="" loading="lazy"></img>
+      </div>
+      <div class="item item-17">
+        <img src="./images/index_images/NatureX.gif" alt="" loading="lazy">
+        </img>
+      </div>
     </div>
 
 
@@ -125,7 +135,7 @@
     </div> -->
  
     <div class="footer landing">
-      <a href="mailto:jdcuartas2013@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
+      <a href="mailto:dancuar.design@gmail.com"><img src="./images/mail_icon.svg" alt=""></a>
       
       <a href="https://www.instagram.com/dancuar/" target="_blank" rel="noreferrer noopener">INSTAGRAM</a>
       <a href="https://www.are.na/dan-cuartas" target="_blank" rel="noreferrer noopener">ARE.NA</a>
@@ -148,7 +158,7 @@
       loadingAnimation.add(function(){
         document.body.style.overflow = "hidden";
       });
-      loadingAnimation.to(".loadingSquare", {repeat: 1, duration: .7, opacity: 1, delay:.2, stagger: .08, ease: "power4.inOut"});
+      loadingAnimation.to(".loadingSquare", {repeat: 2, duration: .7, opacity: 1, delay:.2, stagger: .08, ease: "power4.inOut"});
       loadingAnimation.to(".loadingSquare", {duration: .7, opacity: 0, delay:-.2, stagger: .06, ease: "power4.inOut"});
       loadingAnimation.to(".loadingOverlay", {duration: 0, opacity: 0, delay:-.2,ease: "power4.inOut"});
       loadingAnimation.add(function(){
@@ -158,7 +168,9 @@
       });
 
       loadingAnimation.to(".load_row", {duration: 1, opacity: 0, y:20, stagger: .06, delay:-.5, ease: "power4.inOut"});
-      loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on, .item", {duration: .2, opacity: 0, delay:-1.1, y:-20, stagger: .05});      
+      loadingAnimation.from(".navbar a, .footer.landing a, .device_menu_toggle_on", {duration: .2, opacity: 0, delay:-0.9, y:-20, stagger: .05});
+      loadingAnimation.from(".item img", {duration: .2, opacity: 0, delay:-0.5, y:-20, stagger: .05});
+
     }
 
     landingLoad();

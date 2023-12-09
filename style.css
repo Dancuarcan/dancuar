@@ -321,6 +321,10 @@ body {
     mix-blend-mode: normal;
 }
 
+.cursor.vimeo {
+  z-index: -1;
+}
+
 .next_icon {
   display: none;
   animation-name: cursor_apear;
@@ -475,12 +479,116 @@ body {
   align-self: center;
 }
 
+.item-15 {
+  grid-area: 6 / 1 / 6 / 5;
+  align-self: center;
+}
 
+.item-16 {
+  grid-area: 6 / 5 / 6 / 9;
+  align-self: center;
+}
+
+.item-17 {
+  grid-area: 6 / 9 / 6 / 13;
+  align-self: center;
+  z-index: 1;
+}
 
 .grid_layout img{
   width: 100%;
   height: auto;
 }
+
+/*CBC*/
+
+.grid_CBC{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: grid;
+  padding: 5rem 2rem;
+  grid-template-columns: repeat(12 , 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 2rem ;
+}
+
+
+.grid_CBC img{
+  width: 100%;
+  height: auto;
+}
+
+.grid_CBC .video {
+  grid-area: 1 / 7 / 1 / 13;
+  margin-bottom: 2rem;
+}
+
+.grid_CBC .CBCimg01 {
+  grid-area: 2 / 7 / 2 / 13; 
+  margin-bottom: 2rem;
+}
+
+.grid_CBC .CBCimg02 {
+  grid-area: 4 / 7 / 4 / 13; 
+  margin-bottom: 2rem;
+}
+
+.grid_CBC .CBCimg03 {
+  grid-area: 3 / 7 / 3 / 13; 
+  margin-bottom: 2rem;
+}
+.CBC_text_content {
+  display: flex;
+  justify-content: space-between;
+  grid-area: 1 / 1 / 1 / 7; 
+  margin-bottom: 2rem;
+  }
+
+
+.CBC_year {
+  font-family: "input-mono", monospace;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: right;
+  align-items: top;
+}
+
+.backBtn {
+  font-family: "input-mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.CBC_title {
+  font-family: "input-mono", monospace;
+  font-weight: 600;
+  font-style: normal;
+  font-size: .9rem;
+  margin-bottom: 2rem;
+}
+
+.CBC_category {
+  font-family: "input-mono", monospace;
+  font-weight: 600;
+  font-style: normal;
+  font-size: .9rem;
+  margin-bottom: 2rem;
+}
+
+.backBtn a{
+  user-select: none;
+  color: #000000; 
+}
+
+
+
 
 .zoom_container {
   animation-name: panel_entry;
@@ -496,6 +604,7 @@ body {
   opacity: 1;
   height: 100vh;
 }
+
 
 @keyframes panel_entry {
   from {
@@ -555,7 +664,7 @@ body {
 
 #album_background {
   position: absolute;
-  height: 4300px;
+  height: 5500px;
   width: 100%;
 }
 
@@ -564,6 +673,7 @@ body {
   height: 3000px;
   width: 100%;
 }
+
 
 #illustration_background {
   position: absolute;
@@ -631,6 +741,64 @@ body {
   height: 100%;
   width: auto;
   user-select: none;
+}
+
+/*Animation Section*/
+.gallery_animation {
+  position: fixed;
+  height:  97vh;
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  padding: 5rem 0;
+}
+
+.gallery_animation .img_description {
+  opacity: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery_animation p{
+  font-family: "input-mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: #4b4b4b;
+  font-size: .9rem;
+  padding-top: 12px;
+}
+
+.gallery_animation .item {
+  margin-left: 2rem;
+}
+
+.gallery_animation .item .img_container{
+  overflow: hidden;
+  height: 65vh;
+  max-height: 650px;
+  /* animation-name: imgFadeIn;
+  animation-duration: 3s;
+  animation-fill-mode: none;
+  animation-timing-function: cubic-bezier(.3, 0, 0, 1);
+  animation-delay: var(--delay); */
+  opacity: 1;
+  user-select: none;
+}
+
+.gallery_animation .img_container img{
+  object-fit: cover;
+  height: 100%;
+  width: auto;
+  user-select: none;
+}
+
+#animation_background {
+  position: absolute;
+  height: 2050px;
+  width: 100%;
 }
 
 
@@ -1107,6 +1275,11 @@ canvas.active{
     cursor: pointer;
   }
 
+  .gallery_animation .img_container img{
+    cursor: pointer;
+  }
+
+
   .device_menu_toggle_on{
     display: flex;
   }
@@ -1206,6 +1379,14 @@ canvas.active{
     padding: 5rem 1rem;
   }
   
+  .grid_CBC{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 1rem;
+  }
   
 
   .about .description {
@@ -1261,6 +1442,38 @@ canvas.active{
     object-fit: cover;
     height: auto;
     width: 100%;
+  }
+
+  /*Animation section*/
+
+  .gallery_animation {
+    justify-content: start;
+    padding: 5rem 1rem;
+    height: auto;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+
+  .gallery_animation .item {
+    margin-left: 0;
+    margin-bottom: 2rem;
+  }
+
+  .gallery_animation .item .img_container {
+    width: 100%;
+    height: auto;
+    max-height: 1000px;
+  }
+
+  .gallery_animation .img_container img{
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+  }
+
+  #animation_background {
+    height: auto;
   }
 
   .zoom_container p{
