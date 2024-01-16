@@ -494,6 +494,21 @@ body {
   align-self: center;
   z-index: 1;
 }
+.item-18 {
+  grid-area: 7 / 1 / 7 / 5;
+  align-self: center;
+  z-index: 1;
+}
+.item-19 {
+  grid-area: 7 / 5 / 7 / 9;
+  align-self: center;
+  z-index: 1;
+}
+.item-20 {
+  grid-area: 7 / 9 / 7 / 13;
+  align-self: center;
+  z-index: 1;
+}
 
 .grid_layout img{
   width: 100%;
@@ -502,7 +517,7 @@ body {
 
 /*CBC*/
 
-.grid_CBC{
+.grid_project{
   width: 100%;
   height: 100%;
   position: relative;
@@ -514,39 +529,70 @@ body {
 }
 
 
-.grid_CBC img{
+.grid_project img{
   width: 100%;
   height: auto;
 }
 
-.grid_CBC .video {
+.grid_project .video {
   grid-area: 1 / 7 / 1 / 13;
   margin-bottom: 2rem;
 }
 
-.grid_CBC .CBCimg01 {
+.grid_project .projectimg01 {
   grid-area: 2 / 7 / 2 / 13; 
   margin-bottom: 2rem;
 }
 
-.grid_CBC .CBCimg02 {
+.grid_project .projectimg02 {
+  grid-area: 3 / 7 / 3 / 13; 
+  margin-bottom: 2rem;
+}
+
+.grid_project .projectimg03 {
   grid-area: 4 / 7 / 4 / 13; 
   margin-bottom: 2rem;
 }
 
-.grid_CBC .CBCimg03 {
-  grid-area: 3 / 7 / 3 / 13; 
+.grid_project .projectimg04 {
+  grid-area: 5 / 7 / 5 / 13; 
   margin-bottom: 2rem;
 }
-.CBC_text_content {
+
+.grid_project .projectimg05 {
+  grid-area: 6 / 7 / 6 / 13; 
+  margin-bottom: 2rem;
+}
+
+
+
+.project_info_container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+  grid-area: 1 / 1 / 7 / 7; 
+  width: 46%;
+}
+
+.project_text_content {
   display: flex;
   justify-content: space-between;
-  grid-area: 1 / 1 / 1 / 7; 
   margin-bottom: 2rem;
-  }
+  width: 100%;
+}
 
+.project_description {
+  font-family: "input-mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: .9rem;
+  text-align: left;
+  line-height: 1.3rem;
+}
 
-.CBC_year {
+.project_year {
   font-family: "input-mono", monospace;
   font-weight: 600;
   font-style: normal;
@@ -566,20 +612,18 @@ body {
   margin-bottom: 2rem;
 }
 
-.CBC_title {
+.project_title {
   font-family: "input-mono", monospace;
   font-weight: 600;
   font-style: normal;
   font-size: .9rem;
-  margin-bottom: 2rem;
 }
 
-.CBC_category {
+.project_category {
   font-family: "input-mono", monospace;
   font-weight: 600;
   font-style: normal;
   font-size: .9rem;
-  margin-bottom: 2rem;
 }
 
 .backBtn a{
@@ -664,7 +708,7 @@ body {
 
 #album_background {
   position: absolute;
-  height: 5500px;
+  height: 5900px;
   width: 100%;
 }
 
@@ -1379,7 +1423,7 @@ canvas.active{
     padding: 5rem 1rem;
   }
   
-  .grid_CBC{
+  .grid_project{
     width: 100%;
     height: auto;
     position: relative;
@@ -1388,6 +1432,10 @@ canvas.active{
     padding: 5rem 1rem;
   }
   
+  .project_info_container {
+    position: relative;
+    width: 100%;
+  }
 
   .about .description {
     width: 370px;
